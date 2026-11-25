@@ -123,7 +123,7 @@ jobs:
   pypi:
     needs: [determine_tags_and_versions]
     if: ${{ inputs.pip }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # Python 3.11.5 is unavailable on Ubuntu 26.04.
     name: Publish to PyPI
     permissions:
       id-token: write
@@ -173,7 +173,7 @@ jobs:
   test_pypi_upload:
     needs: [determine_tags_and_versions]
     if: ${{ inputs.test_pypi }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # Python 3.11.5 is unavailable on Ubuntu 26.04.
     name: Publish to Test PyPI
     permissions:
       id-token: write

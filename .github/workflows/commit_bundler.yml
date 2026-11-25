@@ -50,9 +50,10 @@ jobs:
     strategy:
       fail-fast: false # <-- ADDED: Allows all OS builds to complete even if one fails
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        # Python 3.12.0 has no hosted build for Ubuntu 26.04.
+        os: [ubuntu-24.04, windows-latest, macos-latest]
         include:
-          - os: ubuntu-latest
+          - os: ubuntu-24.04
             artifact_suffix: linux
             shell: bash
           - os: windows-latest
